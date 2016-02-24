@@ -10,10 +10,12 @@
 	<title>Enzo Roiz</title>
 	<meta charset='utf-8'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
 	<script src="js/jquery-2.2.0.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/sweet-alert.js"></script>
 </head>
 <body>
 	<div id="left-panel">
@@ -48,7 +50,7 @@
 
 				<p>Estudei Engenharia de Software, como parte da graduação, por 1 ano na Universidade de Glasgow, em Glasgow na Escócia.</p><br/>
 
-				<p>Atualmente trabalho com desenvolvimento de software como trainee na empresa SYDLE.</p>
+				<p>Atualmente trabalho com desenvolvimento de software como trainee na empresa SYDLE em Belo Horizonte.</p>
 			</div>
 		</div>
 		<div class="contact-wrapper">

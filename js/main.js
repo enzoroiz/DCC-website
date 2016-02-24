@@ -99,11 +99,28 @@ $(document).ready(function(){
 				type: 'POST',
 				url: 'mail.php',
 				data: $contactForm.serialize(),
-				success: function(data){
-					alert('Yas ' + data);
+				success: function(response){
+					if (response['sent'] == 'true'){
+						swal({
+							title: "Email enviado! ;)",
+							text: response['message'],
+							type: 'success',
+							'allowEscapeKey': 'true',
+							'allowOutsideClick': 'true',
+						});	
+					} else {
+						swal({
+							title: "Email não enviado! :(",
+							text: response['message'],
+							type: 'error',
+							'allowEscapeKey': 'true',
+							'allowOutsideClick': 'true',
+						});
+					}
+					
 				},
-				fail: function(data){
-					alert('Fucking hell, man! ' + data);
+				fail: function(response){
+					console.log(response);
 				}
 			});
 		}

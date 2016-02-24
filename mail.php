@@ -3,16 +3,29 @@
    $subject = $_POST['subject'];
    $message = $_POST['message'];
    $email = $_POST['email'];
-   $headers = 'De ' . $name . '. (' . $email . ') . Enviada em ' . date('j/m/y H:i') . '.';
-   $to = "enzoroiz@gmail.com";
-   echo $to;
-   echo $subject;
-   echo $message;
-   echo $headers;
+   $headers = 'De ' . $name . ' (' . $email . '). Enviada em ' . date('j/m/y H:i') . '.';
+   $to = 'enzoroiz@gmail.com';
 
-   checkAndSendEmail($email);
+   $response = array();
+   // Check email and send it
+   if(checkEmail($email)){
+      if(mail($to, $subject, $message, $headers)){
+         $response['sent'] = 'true';
+         $response['message'] = 'Obrigado pelo contato. Assim que possível responderei o seu email.';
+      } else {
+         $response['sent'] = 'false';
+         $response['message'] = 'Ocorreu algum problema e seu email não foi enviado. Tente novamente mais tarde.';
+      }
+   } else {
+      $response['sent'] = 'false';
+      $response['message'] = 'Seu email deve estar no formato "nome@dominio.com". Verifique seu email e tente novamente.';
+   }
 
-   function checkAndSendEmail($email){
+   header('Content-type: application/json');
+
+   echo json_encode($response);
+
+   function checkEmail($email){
       $correctMail = 0;
       
       // Check email things
@@ -28,8 +41,8 @@
                if (strlen($domain)>1 && strlen($domain)<5 && (!strstr($domain,"@")) ){
                   // Check before domain
                   $beforeDomain = substr($email,0,strlen($email) - strlen($domain) - 1);
-                  $caracter_ult = substr($beforeDomain,strlen($beforeDomain)-1,1);
-                  if ($caracter_ult != "@" && $caracter_ult != "."){
+                  $lastChar = substr($beforeDomain,strlen($beforeDomain)-1,1);
+                  if ($lastChar != "@" && $lastChar != "."){
                      $correctMail = 1;
                   }
                }
@@ -37,10 +50,10 @@
          }
       }
 
-      if ($correctMail && mail($to, $subject, $message, $headers)) {
-         echo "success";
+      if ($correctMail) {
+         return 1;
       } else {
-         echo "fail";
+         return 0;
       }
    } 
 ?>
