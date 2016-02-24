@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+* {
+	margin:0; padding: 0;
+	color: #ffffff;
+}
+
+html, body {
+	height:600%;
+	background-image: url(../img/bg-first.jpg);
+	background-position: center;
+	background-attachment: fixed;
+	font-family: 'Roboto', sans-serif;
+}
+
+#home .info {
+	position: fixed;
+	top: 50%;
+	text-align: center;
+	width: 60%;
+	margin-left: 20%;
+}
+
+#about .info {
+	position: fixed;
+	width: 100%;
+}
+
+#about .info .title {
+	width: 50%;
+	text-align: center;
+}
+
+#about .info .description {
+	width: 50%;
+	text-align: center;
+}
+
+#contact .info {
+	display: none;
+	position: fixed;
+}
+
+.left {
+	float: left;
+}
