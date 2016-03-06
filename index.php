@@ -11,8 +11,9 @@
 	<meta charset='utf-8'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 	<script src="js/jquery-2.2.0.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery-ui/jquery-ui.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/jquery.validate.min.js"></script>
 	<script src="js/sweet-alert.js"></script>
@@ -31,11 +32,17 @@
 		</div>
 		<div class="title contact-title">
 			<h1>CONTATO</h1>
+			<div class="social-media">
+				<a href="https://www.facebook.com/enzo.roiz"><i class="fa fa-fw fa-facebook"></i></a>
+				<a href="https://twitter.com/EnzoRoiz"><i class="fa fa-fw fa-twitter"></i></a>
+				<a href="https://br.linkedin.com/in/enzo-roiz-3b06b5a6"><i class="fa fa-fw fa-linkedin"></i></a>
+				<div class="clearer"></div>
+			</div>
 		</div>
 	</div>
 	<div id="right-panel">
-		<div class="photo"></div>
 		<div class="about-wrapper">
+			<div class="photo"></div>
 			<div class="about-description">
 				<h1>ENZO ROIZ</h1><br/>
 				<p><?php echo $age; ?> anos. Nascido e criado em Belo Horizonte, MG. Atleticano apaixonado e peladeiro nas horas vagas. 
@@ -54,8 +61,9 @@
 			</div>
 		</div>
 		<div class="contact-wrapper">
+			<div class="photo"></div>
 			<div class="contact-form">
-				<h1>Contato</h1><br>
+				<h1>Enviar Email</h1><br>
 				<form id="contact-form" name="contact" action="mail.php" method="post">
 					<input placeholder="Nome" type="text" name="name" value=""><br>
 					<br><input placeholder="E-mail" type="text" name="email" value=""><br>

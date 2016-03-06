@@ -1,3 +1,6 @@
+var normalSpeed = 400;
+var fastSpeed = normalSpeed/2;
+
 $(document).ready(function(){
 	var $aboutTitle = $('.about-title');
 	var $aboutWrapper = $('.about-wrapper');
@@ -7,7 +10,6 @@ $(document).ready(function(){
 	var $submitMail = $('.submit')
 	var $photo = $('.photo');
 	var $contactForm = $('#contact-form');
-	var animationTime = 400;
 
 	$('#menu-contact').click(function(){
 		$leftPanel.animate({
@@ -31,7 +33,7 @@ $(document).ready(function(){
 		$aboutWrapper.animate({
 			'opacity': 0
 		},
-		animationTime/2,
+		fastSpeed,
 		function(){
 			$aboutWrapper.css('display', 'none');
 			$contactWrapper.css('display', 'block');
@@ -63,7 +65,7 @@ $(document).ready(function(){
 		$contactWrapper.animate({
 			'opacity': 0
 		},
-		animationTime/2,
+		fastSpeed,
 		function(){
 			$contactWrapper.css('display', 'none');
 			$aboutWrapper.css('display', 'block');
@@ -125,4 +127,33 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	$('.social-media .fa-facebook').hover(function(){
+	    shake($(this));
+	}, function(){
+	    stopShake($(this));
+	});
+
+	$('.social-media .fa-twitter').hover(function(){
+	    shake($(this));
+	}, function(){
+	    stopShake($(this));
+	});
+
+	$('.social-media .fa-linkedin').hover(function(){
+	    shake($(this));
+	}, function(){
+	    stopShake($(this));
+	});
 });
+
+function shake(selector){
+	if(!$(selector).hasClass('animated')){
+	    $(selector).addClass('animated');
+	    $(selector).stop().effect('shake', { distance:3 }, fastSpeed);
+	}
+}
+
+function stopShake(selector){
+	$(selector).removeClass('animated');
+}
